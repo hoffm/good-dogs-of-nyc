@@ -10,5 +10,6 @@ group :development do
 end
 
 group :test do
+  gem "factory_bot"
   gem "rspec"
 end
