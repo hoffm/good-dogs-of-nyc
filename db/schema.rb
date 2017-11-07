@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20171029182738) do
 
   create_table "good_dogs", force: :cascade do |t|
     t.string "name"
-    t.string "breed_1"
-    t.string "breed_2"
+    t.string "breed"
     t.string "color_1"
     t.string "color_2"
     t.string "color_3"

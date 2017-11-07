@@ -9,9 +9,8 @@ class GoodDogJsonConverter
 
   def call
     {
-      name: clean_string("Dog Name"),
-      breed_1: clean_string("Breed"),
-      breed_2: clean_string("Breed Other"),
+      name: clean_string("Dog Name").titlecase,
+      breed: breed,
       color_1: clean_string("Animal Dominant Color"),
       color_2: clean_string("Animal Secondary Color"),
       color_3: clean_string("Animal Third Color"),
@@ -36,8 +35,14 @@ class GoodDogJsonConverter
     short_year < 20 ? short_year + 2000 : short_year + 1900
   end
 
+  def breed
+    [data["Breed"], data["Breed Other"]].reject do |breed|
+      breed.blank? || breed == "Unknown"
+    end.first.to_s.strip
+  end
+
   def clean_string(key)
-    data[key].strip.titlecase
+    data[key].strip
   end
 
   def split_birth_date
