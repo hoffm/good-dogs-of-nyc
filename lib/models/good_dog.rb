@@ -3,7 +3,7 @@ class GoodDog < ActiveRecord::Base
     Neighborhoods.from_zip(zip_code)
   end
 
-  def color_phrase
+  def color
     Colors.to_phrase(color_1, color_2, color_3)
   end
 end
