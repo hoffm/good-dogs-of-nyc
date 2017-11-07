@@ -6,3 +6,12 @@ development:
   pool: 5
   reaping_frequency: 10
   timeout: 5000
+
+test:
+  adapter: postgresql
+  database: good_dogs_test
+  encoding: utf8
+  min_messages: warning
+  pool: 5
+  reaping_frequency: 10
+  timeout: 5000
