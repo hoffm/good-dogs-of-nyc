@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Neighborhoods
+module NeighborhoodService
   module_function
 
   FROM_ZIP = {

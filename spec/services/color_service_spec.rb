@@ -1,6 +1,6 @@
 require "spec_helper.rb"
 
-describe Colors do
+describe ColorService do
   describe ".to_phrase" do
     let(:color_phrase) { described_class.to_phrase(*colors) }
 

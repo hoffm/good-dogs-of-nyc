@@ -1,6 +1,6 @@
 require "spec_helper.rb"
 
-describe Neighborhoods do
+describe NeighborhoodService do
   describe ".from_zip" do
     context "when the zip is an NYC zip" do
       it "produces a neighborhood" do

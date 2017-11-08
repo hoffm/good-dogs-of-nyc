@@ -1,4 +1,4 @@
-module Colors
+module ColorService
   module_function
 
   def to_phrase(*colors)

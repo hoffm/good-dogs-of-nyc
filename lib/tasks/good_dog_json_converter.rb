@@ -10,7 +10,7 @@ class GoodDogJsonConverter
   def call
     {
       name: clean_string("Dog Name").titlecase,
-      breed: breed,
+      breed: BreedCleaner.new(breed).call,
       color_1: clean_string("Animal Dominant Color"),
       color_2: clean_string("Animal Secondary Color"),
       color_3: clean_string("Animal Third Color"),
@@ -38,7 +38,7 @@ class GoodDogJsonConverter
   def breed
     [data["Breed"], data["Breed Other"]].reject do |breed|
       breed.blank? || breed == "Unknown"
-    end.first.to_s.strip
+    end.first.to_s
   end
 
   def clean_string(key)
@@ -53,6 +53,32 @@ class GoodDogJsonConverter
     case data[key]
     when "Yes" then true
     when "No" then false
+    end
+  end
+
+  class BreedCleaner
+    attr_accessor :breed
+
+    def initialize(breed)
+      @breed = breed
+    end
+
+    def call
+      replace_mix(unreverse(strip(breed.titlecase)))
+    end
+
+    private
+
+    def strip(str)
+      str.strip.squeeze(" ")
+    end
+
+    def replace_mix(str)
+      str.sub(" X", " Mix")
+    end
+
+    def unreverse(str)
+      str.split(", ").reverse.join(" ")
     end
   end
 end
