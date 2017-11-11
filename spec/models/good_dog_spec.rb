@@ -2,9 +2,40 @@ require "spec_helper.rb"
 
 describe GoodDog do
   let(:good_dog) { build(:good_dog) }
+  let(:age_info) { double("Age Info") }
+
+  before(:each) do
+    allow(AgeService).to receive(:new).and_return(age_info)
+    allow(age_info).to receive(:adjectival_age_phrase)
+    allow(age_info).to receive(:predicate_age_phrase)
+  end
 
   it "has a valid factory" do
     expect(good_dog).to be_valid
+  end
+
+  describe "#adjectival_age" do
+    before(:each) do
+      good_dog.adjectival_age
+    end
+
+    it "looks up the neighborhood for the dog's zipcode" do
+      expect(AgeService).to have_received(:new).
+        with(good_dog.birth_year, good_dog.birth_month)
+      expect(age_info).to have_received(:adjectival_age_phrase)
+    end
+  end
+
+  describe "#age" do
+    before(:each) do
+      good_dog.age
+    end
+
+    it "looks up the neighborhood for the dog's zipcode" do
+      expect(AgeService).to have_received(:new).
+        with(good_dog.birth_year, good_dog.birth_month)
+      expect(age_info).to have_received(:predicate_age_phrase)
+    end
   end
 
   describe "#neighborhood" do
