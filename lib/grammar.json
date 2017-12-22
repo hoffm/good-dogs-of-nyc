@@ -1,24 +1,86 @@
 {
   "<root>": [
-    ["<intro>", "<body>", "<sign_off>"]
-  ],
-  "<intro>": [
-    ["Hi, my name is", "#dog#name#", "."]
+    ["<body>", "<sign_off>"]
   ],
   "<body>": [
-    ["I am a", "#dog#color#", "<age_breed>", "living in", "#dog#neighborhood#", "."]
+    ["<salutation_with_name>", "Hi.|0.1", "<long_sentence_body>", "Hi.|0.1"],
+    ["<salutation_with_name>", "Hi.|0.1", "<short_sentences_body>", "Hi.|0.1"],
+    ["<short_sentences_body>", "<salutation_with_name>", "Hi.|0.1"]
+  ],
+  "<salutation_with_name>": [
+    ["Hi, my name is", "#dog#name#", "."],
+    ["<bark>|0.2", "I am", "#dog#name#", "."],
+    ["Oh hi. It is", "#dog#name#", "here|0.3", "."],
+    ["I am", "#dog#name#", ".", "Hello."]
+  ],
+  "<long_sentence_body>": [
+    ["I am a", "<cute_adjective>|0.5", "#dog#color#|0.5", "<age_breed>", "<neighborhood_phrase>|0.5", "."]
+  ],
+  "<short_sentences_body>": [
+    ["<age_sentence>|0.7", "<breed_sentence>|0.8", "<neighborhood_sentence>|0.7"],
+    ["<age_sentence>|0.7", "<neighborhood_sentence>|0.7", "<breed_sentence>|0.8"],
+    ["<breed_sentence>|0.8", "<age_sentence>|0.7", "<neighborhood_sentence>|0.7"],
+    ["<breed_sentence>|0.8", "<neighborhood_sentence>|0.7", "<age_sentence>|0.7"],
+    ["<neighborhood_sentence>|0.7", "<age_sentence>|0.7", "<breed_sentence>|0.8"],
+    ["<neighborhood_sentence>|0.7", "<breed_sentence>|0.8", "<age_sentence>|0.7"]
+  ],
+  "<age_sentence>": [
+    ["My owner tells me I'm", "#dog#age#", "."],
+    ["I am", "#dog#age#", "and I still feel like a puppy|0.1", "."],
+    ["I am", "#dog#age#", ",", "but honestly I do not comprehend the passage of time."],
+    ["They say I am", "#dog#age#", "(whatever that means)|0.1", "."],
+    ["I forget how old I am. Hi."]
+  ],
+  "<breed_sentence>": [
+    ["I am a", "#dog#breed#", ".", "You can look up what that is if you want to.|0.05"],
+    ["By breed, I am a", "#dog#breed#", "."]
+  ],
+  "<neighborhood_sentence>": [
+    ["I am", "<neighborhood_phrase>", "."]
+  ],
+  "<neighborhood_phrase>": [
+    ["<action_present_participle>", "in", "#dog#neighborhood#"]
+  ],
+  "<action_present_participle>": [
+    ["living"],
+    ["chasing", "<animals_to_chase>"],
+    ["tugging on my leash"],
+    ["sniffing the grass"],
+    ["walking the streets"],
+    ["looking for pets and scratches"],
+    ["seeking tummy rubs"],
+    ["looking out the window"],
+    ["begging for treats"],
+    ["chilling"]
+  ],
+  "<animals_to_chase>": [
+    ["squirrels"],
+    ["pigeons"],
+    ["rats"]
   ],
   "<sign_off>": [
     ["I am a good dog."]
   ],
   "<age_breed>": [
-    ["#dog#adjectival_age#", "<cute_adjective>|0.5", "#dog#breed#"],
-    ["<cute_adjective>|0.5", "#dog#breed#", "who is", "#dog#age#"]
+    ["#dog#adjectival_age#|0.5", "#dog#breed#"],
+    ["#dog#breed#", "#dog#adjectival_age#|0.5"]
   ],
   "<cute_adjective>": [
     ["lovable"],
     ["friendly"],
     ["darling"],
-    ["loving"]
+    ["loving"],
+    ["furry"],
+    ["snuggly"],
+    ["cuddly"],
+    ["nice"],
+    ["slobbery"]
+  ],
+  "<bark>": [
+    ["Ruff!"],
+    ["Arf!"],
+    ["Arrruff!"],
+    ["Woof!"],
+    ["Bow-wow!"]
   ]
 }
