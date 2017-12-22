@@ -6,7 +6,7 @@ ENV["RACK_ENV"] ||= "development"
 
 ActiveRecord::Base.logger = Logger.new("debug.log")
 configuration = YAML::safe_load(IO.read("db/config.yml"))
-p
+
 ActiveRecord::Base.establish_connection(configuration[ENV["RACK_ENV"]])
 
 %w(models services).each do |dir|

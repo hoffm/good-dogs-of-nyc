@@ -1,0 +1,24 @@
+{
+  "<root>": [
+    ["<intro>", "<body>", "<sign_off>"]
+  ],
+  "<intro>": [
+    ["Hi, my name is", "#dog#name#", "."]
+  ],
+  "<body>": [
+    ["I am a", "#dog#color#", "<age_breed>", "living in", "#dog#neighborhood#", "."]
+  ],
+  "<sign_off>": [
+    ["I am a good dog."]
+  ],
+  "<age_breed>": [
+    ["#dog#adjectival_age#", "<cute_adjective>|0.5", "#dog#breed#"],
+    ["<cute_adjective>|0.5", "#dog#breed#", "who is", "#dog#age#"]
+  ],
+  "<cute_adjective>": [
+    ["lovable"],
+    ["friendly"],
+    ["darling"],
+    ["loving"]
+  ]
+}
