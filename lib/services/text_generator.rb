@@ -1,4 +1,6 @@
-class TextService
+class TextGenerator
+  include TextUtils
+
   attr_reader :subjects, :output, :grammar
 
   ROOT_NODE = "<root>".freeze
@@ -11,7 +13,7 @@ class TextService
   end
 
   def generate(root_node = ROOT_NODE)
-    generate_list(root_node).join(" ")
+    sentence_join(generate_list(root_node))
   end
 
   private
@@ -22,6 +24,7 @@ class TextService
 
   def generate_list(key)
     instruction_lists = grammar[key]
+
     if instruction_lists
       instruction_lists.sample.each(&method(:evaluate_instruction))
       output

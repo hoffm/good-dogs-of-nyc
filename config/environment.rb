@@ -9,6 +9,8 @@ configuration = YAML::safe_load(IO.read("db/config.yml"))
 
 ActiveRecord::Base.establish_connection(configuration[ENV["RACK_ENV"]])
 
+autoload(:TextUtils, "./lib/services/text_utils.rb")
+
 %w(models services).each do |dir|
   Dir[Dir.pwd + "/lib/#{dir}/**/*.rb"].each { |f| require f }
 end

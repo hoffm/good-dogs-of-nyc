@@ -1,6 +1,6 @@
 require "spec_helper.rb"
 
-describe TextService do
+describe TextGenerator do
   describe "#generate" do
     let(:subjects) { {} }
     let(:output) do
@@ -72,7 +72,7 @@ describe TextService do
       context "when the receiver does not match a declared subject" do
         it "raises an error" do
           expect { output }.to raise_error(
-            TextService::UndefinedReceiverError,
+            described_class::UndefinedReceiverError,
           )
         end
       end
@@ -118,7 +118,7 @@ describe TextService do
 
         it "raises an error" do
           expect { output }.to raise_error(
-            TextService::UndefinedMacroError,
+            described_class::UndefinedMacroError,
           )
         end
       end
@@ -148,6 +148,13 @@ describe TextService do
 
       it "it combines the various components" do
         expect(output).to eq("A brown dog is cute")
+      end
+    end
+
+    context "with sentence terminators" do
+      let(:grammar) { { "<root>" => [["Hi", "!"]] } }
+      it "doesn't add a space before the terminator" do
+        expect(output).to eq("Hi!")
       end
     end
 
