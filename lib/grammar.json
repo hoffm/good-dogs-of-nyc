@@ -14,7 +14,7 @@
     ["I am", "#dog#name#", ".", "Hello."]
   ],
   "<long_sentence_body>": [
-    ["I am a", "<cute_adjective>|0.5", "#dog#color#|0.5", "<age_breed>", "<neighborhood_phrase>|0.5", "."]
+    ["I am", "$INDEF_ARTICLE", "<cute_adjective>|0.5", "#dog#color#|0.5", "<age_breed>", "<neighborhood_phrase>|0.5", "."]
   ],
   "<short_sentences_body>": [
     ["<age_sentence>|0.7", "<breed_sentence>|0.8", "<neighborhood_sentence>|0.7"],
@@ -32,8 +32,8 @@
     ["I forget how old I am. Hi."]
   ],
   "<breed_sentence>": [
-    ["I am a", "#dog#breed#", ".", "You can look up what that is if you want to.|0.05"],
-    ["By breed, I am a", "#dog#breed#", "."]
+    ["I am", "$INDEF_ARTICLE", "#dog#breed#", ".", "You can look up what that is if you want to.|0.05"],
+    ["By breed, I am", "$INDEF_ARTICLE", "#dog#breed#", "."]
   ],
   "<neighborhood_sentence>": [
     ["I am", "<neighborhood_phrase>", "."]

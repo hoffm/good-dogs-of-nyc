@@ -1,6 +1,6 @@
 require "spec_helper.rb"
 
-describe TextGenerator do
+describe TextGeneration::TextGenerator do
   describe "#generate" do
     let(:subjects) { {} }
     let(:output) do
@@ -155,6 +155,28 @@ describe TextGenerator do
       let(:grammar) { { "<root>" => [["Hi", "!"]] } }
       it "doesn't add a space before the terminator" do
         expect(output).to eq("Hi!")
+      end
+    end
+
+    context "with an indefinite article" do
+      let(:grammar) do
+        { "<root>" => [["$INDEF_ARTICLE", next_instruction]] }
+      end
+
+      context "with and initial vowel" do
+        let(:next_instruction) { "English Bulldog" }
+
+        it "replaces the post-processed phrase with 'an'" do
+          expect(output).to eq("an English Bulldog")
+        end
+      end
+
+      context "with and initial consonant" do
+        let(:next_instruction) { "dog" }
+
+        it "replaces the post-processed phrase with 'a'" do
+          expect(output).to eq("a dog")
+        end
       end
     end
 
