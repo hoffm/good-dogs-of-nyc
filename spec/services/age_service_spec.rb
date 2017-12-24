@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe AgeService do
-  let(:time_now) { Time.new(2015, 6, 15) }
+  let(:time_now) { described_class::REF_DATE }
 
   before(:each) do
     allow(Time).to receive(:now).and_return(time_now)
@@ -33,16 +33,16 @@ describe AgeService do
       let(:birth_month) { 2 }
 
       it "returns an age in years" do
-        expect(age_phrase).to eq("5 years old")
+        expect(age_phrase).to eq("6 years old")
       end
     end
 
     context "with a birthday less than two years ago" do
-      let(:birth_year) { 2014 }
+      let(:birth_year) { 2015 }
       let(:birth_month) { 2 }
 
       it "returns an age in months" do
-        expect(age_phrase).to eq("16 months old")
+        expect(age_phrase).to eq("14 months old")
       end
     end
 
@@ -51,7 +51,7 @@ describe AgeService do
       let(:birth_month) { 8 }
 
       it "returns an age in years" do
-        expect(age_phrase).to eq("4 years old")
+        expect(age_phrase).to eq("5 years old")
       end
     end
   end
@@ -66,16 +66,16 @@ describe AgeService do
       let(:birth_month) { 2 }
 
       it "returns an adjectival age in years" do
-        expect(age_phrase).to eq("5-year-old")
+        expect(age_phrase).to eq("6-year-old")
       end
     end
 
     context "with a birthday less than two years ago" do
-      let(:birth_year) { 2014 }
+      let(:birth_year) { 2015 }
       let(:birth_month) { 2 }
 
       it "returns an adjectival age in months" do
-        expect(age_phrase).to eq("16-month-old")
+        expect(age_phrase).to eq("14-month-old")
       end
     end
   end

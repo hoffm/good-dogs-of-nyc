@@ -1,6 +1,7 @@
 class AgeService
   attr_accessor :year, :month
 
+  REF_DATE = Time.new(2016, 4, 28)
   YEAR_REPORT_MIN = 2
 
   def initialize(year, month)
@@ -36,11 +37,7 @@ class AgeService
   end
 
   def month_delta
-    now.month - month
-  end
-
-  def now
-    @_now ||= Time.now.in_time_zone("America/New_York")
+    REF_DATE.month - month
   end
 
   def report_in_years?
@@ -52,7 +49,7 @@ class AgeService
   end
 
   def year_delta
-    now.year - year
+    REF_DATE.year - year
   end
 
   class NegativeAgeError < StandardError
