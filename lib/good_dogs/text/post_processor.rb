@@ -27,7 +27,7 @@ module Text
       phrase_list.reduce("") do |accum_text, phrase|
         prefix = NO_SPACE_BEFORE.include?(phrase) ? "" : " "
         accum_text << (prefix + phrase)
-      end.strip
+      end.strip.squeeze(" ")
     end
 
     def vowel_initial?(str)

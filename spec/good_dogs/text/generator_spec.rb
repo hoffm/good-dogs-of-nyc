@@ -91,7 +91,7 @@ describe Text::Generator do
 
         context "with a probability" do
           let(:grammar) do
-            { "<root>" => [["<color>|0.5"]],
+            { "<root>" => [["The dog is", "<color>|0.5", "."]],
               "<color>" => [["brown"]] }
           end
 
@@ -99,7 +99,7 @@ describe Text::Generator do
             let(:prob_threshold) { 0.3 }
 
             it "produces the string" do
-              expect(output).to eq("brown")
+              expect(output).to eq("The dog is brown.")
             end
           end
 
@@ -107,7 +107,7 @@ describe Text::Generator do
             let(:prob_threshold) { 0.7 }
 
             it "produces a blank string" do
-              expect(output).to eq("")
+              expect(output).to eq("The dog is.")
             end
           end
         end

@@ -1,22 +1,22 @@
 {
   "<root>": [
-    ["<preamble>", "<body>", "<tag>|0.1", "<sign_off>"]
-  ],
-  "<preamble>": [
-    ["🐕"]
+    ["<body>", "<tag>|0.1", "<sign_off>"]
   ],
   "<body>": [
     ["<salutation_with_name>", "Hi.|0.1", "<long_sentence_body>", "Hi.|0.1"],
     ["<salutation_with_name>", "Hi.|0.1", "<short_sentences_body>", "Hi.|0.1"],
-    ["<short_sentences_body>", "<salutation_with_name>", "Hi.|0.1"]
+    ["<short_sentences_body>", "<salutation_with_name>", "Hi.|0.1"],
+    ["<long_sentence_body>", "<salutation_with_name>", "Hi.|0.1"]
   ],
   "<salutation_with_name>": [
     ["Hi, my name is", "#dog#name#", "."],
     ["<bark>|0.2", "I am", "#dog#name#", "."],
     ["Oh hi. It is", "#dog#name#", "here|0.3", "."],
     ["I am", "#dog#name#", ".", "Hello."],
-    ["#dog#name#", "!", "<bark>|0.4", "Did someone say my name?"],
-    ["Let's be friends! You should call me", "#dog#name#", "."]
+    ["I am", "#dog#name#", "!", "<bark>|0.4"],
+    ["Let's be friends! You should call me", "#dog#name#", "."],
+    ["It is I,", "#dog#name#", "."],
+    ["<bark>", "Hi it is", "#dog#name#", "the dog."]
   ],
   "<long_sentence_body>": [
     ["I am", "$INDEF_ARTICLE", "<cute_adjective>|0.5", "#dog#color#|0.7", "<age_breed>", "<neighborhood_phrase>|0.7", "."],
@@ -113,6 +113,9 @@
     ["I think I am ready for a nap."]
   ],
   "<sign_off>": [
-    ["\n\n🐶I am a good dog."]
+    ["I am a good dog.", "<emoji>", "<emoji>|0.3", "<emoji>|0.1", "<emoji>|0.1"]
+  ],
+  "<emoji>": [
+    ["🐶"], ["🐕"], ["🐩"], ["🐾"], ["🌈"], ["✨"], ["🌟"], ["🏙"], ["💚"]
   ]
 }

@@ -18,7 +18,10 @@ class TweetAGoodDog
   end
 
   def pick_good_dog(id)
-    GoodDog.where(tweeted: false).where("id >= ?", id).first
+    GoodDog.where(tweeted: false).
+      where("id >= ?", id).
+      where.not(breed: " ").
+      first
   end
 
   def tweet_text(good_dog)
