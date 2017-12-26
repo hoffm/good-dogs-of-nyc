@@ -24,4 +24,4 @@ production:
   pool: 5
   reaping_frequency: 10
   timeout: 5000
-  url: <%= ENV.fetch("DATABASE_URL", "") %>
+  url: <%= ENV['DATABASE_URL']%>
