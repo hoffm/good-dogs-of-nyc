@@ -1,6 +1,9 @@
 {
   "<root>": [
-    ["<body>", "<sign_off>"]
+    ["<preamble>", "<body>", "<tag>|0.1", "<sign_off>"]
+  ],
+  "<preamble>": [
+    ["🐕"]
   ],
   "<body>": [
     ["<salutation_with_name>", "Hi.|0.1", "<long_sentence_body>", "Hi.|0.1"],
@@ -11,10 +14,14 @@
     ["Hi, my name is", "#dog#name#", "."],
     ["<bark>|0.2", "I am", "#dog#name#", "."],
     ["Oh hi. It is", "#dog#name#", "here|0.3", "."],
-    ["I am", "#dog#name#", ".", "Hello."]
+    ["I am", "#dog#name#", ".", "Hello."],
+    ["#dog#name#", "!", "<bark>|0.4", "Did someone say my name?"],
+    ["Let's be friends! You should call me", "#dog#name#", "."]
   ],
   "<long_sentence_body>": [
-    ["I am", "$INDEF_ARTICLE", "<cute_adjective>|0.5", "#dog#color#|0.5", "<age_breed>", "<neighborhood_phrase>|0.5", "."]
+    ["I am", "$INDEF_ARTICLE", "<cute_adjective>|0.5", "#dog#color#|0.7", "<age_breed>", "<neighborhood_phrase>|0.7", "."],
+    ["Here's my story. I am", "$INDEF_ARTICLE", "#dog#color#|0.7", "<cute_adjective>|0.7", "<age_breed>", "<neighborhood_phrase>|0.7", "."],
+    ["I am", "$INDEF_ARTICLE", "<age_breed>", "known for my", "<beautiful_adjective>", "#dog#color#", "coat and for", "<neighborhood_phrase>", "."]
   ],
   "<short_sentences_body>": [
     ["<age_sentence>|0.7", "<breed_sentence>|0.8", "<neighborhood_sentence>|0.7"],
@@ -27,13 +34,17 @@
   "<age_sentence>": [
     ["My owner tells me I'm", "#dog#age#", "."],
     ["I am", "#dog#age#", "and I still feel like a puppy|0.1", "."],
-    ["I am", "#dog#age#", ",", "but honestly I do not comprehend the passage of time."],
+    ["I am", "#dog#age#", ",", "but also I do not understand time."],
     ["They say I am", "#dog#age#", "(whatever that means)|0.1", "."],
-    ["I forget how old I am. Hi."]
+    ["I forget how old I am. Hi."],
+    ["I am a", "#dog#adjectival_age#", "doggie."],
+    ["Wow, can you believe I am", "#dog#age#", "?"]
   ],
   "<breed_sentence>": [
-    ["I am", "$INDEF_ARTICLE", "#dog#breed#", ".", "You can look up what that is if you want to.|0.05"],
-    ["By breed, I am", "$INDEF_ARTICLE", "#dog#breed#", "."]
+    ["I am", "$INDEF_ARTICLE", "#dog#color#|0.5", "#dog#breed#", ".", "I am quite", "<cute_adjective>", ".", "<bark>|0.2"],
+    ["I am", "$INDEF_ARTICLE", "#dog#color#|0.5", "#dog#breed#", ".", "<bark>|0.2", "You can look up what that is if you want to.|0.05"],
+    ["I am what they call", "$INDEF_ARTICLE", "#dog#breed#", ".", "<bark>|0.2", "My coat is", "#dog#color#", "and it is","<beautiful_adjective>", "."],
+    ["<bark>|0.2", "#dog#breed#", "here."]
   ],
   "<neighborhood_sentence>": [
     ["I am", "<neighborhood_phrase>", "."]
@@ -48,8 +59,8 @@
     ["sniffing the grass"],
     ["walking the streets"],
     ["looking for pets and scratches"],
-    ["seeking tummy rubs"],
-    ["looking out the window"],
+    ["requesting tummy rubs"],
+    ["peering out the window"],
     ["begging for treats"],
     ["chilling"]
   ],
@@ -57,9 +68,6 @@
     ["squirrels"],
     ["pigeons"],
     ["rats"]
-  ],
-  "<sign_off>": [
-    ["I am a good dog."]
   ],
   "<age_breed>": [
     ["#dog#adjectival_age#|0.5", "#dog#breed#"],
@@ -76,11 +84,35 @@
     ["nice"],
     ["slobbery"]
   ],
+  "<beautiful_adjective>": [
+    ["lustrous"],
+    ["shiny"],
+    ["beautiful"],
+    ["lovely"],
+    ["soft"],
+    ["magnificent"],
+    ["majestic"]
+  ],
   "<bark>": [
     ["Ruff!"],
     ["Arf!"],
     ["Arrruff!"],
     ["Woof!"],
     ["Bow-wow!"]
+  ],
+  "<tag>": [
+    ["When is dinner?"],
+    ["Will you scratch behind my ears?"],
+    ["Can we go to the dog park?!", "<bark>|0.3"],
+    ["We should curl up on the couch for a few hours."],
+    ["Want to find a sunny spot to lie in?"],
+    ["Want to do some pets?"],
+    ["I think we are friends now."],
+    ["<bark>", "<bark>"],
+    ["Do you have a ball for fetch?"],
+    ["I think I am ready for a nap."]
+  ],
+  "<sign_off>": [
+    ["\n\n🐶I am a good dog."]
   ]
 }
