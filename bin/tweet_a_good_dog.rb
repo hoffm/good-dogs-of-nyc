@@ -26,4 +26,8 @@ class TweetAGoodDog
   end
 end
 
-TweetAGoodDog.run
+FREQUENCY_DENOMINATOR = ARGV[0].nil? ? 1 : ARGV[0].to_i
+
+if rand(FREQUENCY_DENOMINATOR).zero?
+  TweetAGoodDog.run
+end
