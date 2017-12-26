@@ -38,6 +38,37 @@ describe GoodDog do
     end
   end
 
+  describe "breed" do
+    context "when the record has breed data" do
+      before(:each) { good_dog.breed = "Poodle" }
+
+      it "produces the breed data" do
+        expect(good_dog.breed).to eq("Poodle")
+      end
+    end
+
+    context "when the record has blank breed data" do
+      before(:each) { good_dog.breed = "" }
+
+      it "produces 'mut'" do
+        expect(good_dog.breed).to eq("mut")
+      end
+    end
+  end
+
+  describe "#color" do
+    before(:each) do
+      allow(ColorService).to receive(:to_phrase)
+      good_dog.color
+    end
+
+    it "looks up the neighborhood for the dog's zipcode" do
+      expect(ColorService).to have_received(:to_phrase).with(
+        good_dog.color_1, good_dog.color_2, good_dog.color_3
+      )
+    end
+  end
+
   describe "#mark_as_tweeted!" do
     it "updates tweeted to true" do
       create(:good_dog, tweeted: false)
@@ -54,19 +85,6 @@ describe GoodDog do
 
     it "looks up the neighborhood for the dog's zipcode" do
       expect(NeighborhoodService).to have_received(:from_zip).with(good_dog.zip_code)
-    end
-  end
-
-  describe "#color" do
-    before(:each) do
-      allow(ColorService).to receive(:to_phrase)
-      good_dog.color
-    end
-
-    it "looks up the neighborhood for the dog's zipcode" do
-      expect(ColorService).to have_received(:to_phrase).with(
-        good_dog.color_1, good_dog.color_2, good_dog.color_3
-      )
     end
   end
 end

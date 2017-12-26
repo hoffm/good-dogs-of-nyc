@@ -7,6 +7,10 @@ class GoodDog < ActiveRecord::Base
     age_info.predicate_age_phrase
   end
 
+  def breed
+    self[:breed].empty? ? "mut" : self[:breed]
+  end
+
   def color
     ColorService.to_phrase(color_1, color_2, color_3)
   end

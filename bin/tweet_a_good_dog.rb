@@ -14,14 +14,11 @@ class TweetAGoodDog
   end
 
   def random_good_dog_id
-    rand(GoodDog.maximum(:id)) + 1
+    rand(GoodDog.where(tweeted: false).maximum(:id)) + 1
   end
 
   def pick_good_dog(id)
-    GoodDog.where(tweeted: false).
-      where("id >= ?", id).
-      where.not(breed: " ").
-      first
+    GoodDog.where(tweeted: false).where("id >= ?", id).first
   end
 
   def tweet_text(good_dog)
