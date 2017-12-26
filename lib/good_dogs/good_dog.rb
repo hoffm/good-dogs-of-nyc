@@ -11,6 +11,10 @@ class GoodDog < ActiveRecord::Base
     ColorService.to_phrase(color_1, color_2, color_3)
   end
 
+  def mark_as_tweeted!
+    update_attributes!(tweeted: true)
+  end
+
   def neighborhood
     NeighborhoodService.from_zip(zip_code)
   end

@@ -13,6 +13,7 @@ class CreateGoodDogs < ActiveRecord::Migration[5.1]
       t.boolean :guard_or_trained
       t.boolean :vaccinated
       t.boolean :spayed_or_neutered
+      t.boolean :tweeted, default: false
     end
   end
 end

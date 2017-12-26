@@ -1,6 +1,6 @@
 require "spec_helper.rb"
 
-describe TextGeneration::Instruction do
+describe Text::Instruction do
   describe "#macro?" do
     context "when the text has the form of a macro" do
       it "returns true" do

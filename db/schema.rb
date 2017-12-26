@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171029182738) do
     t.boolean "guard_or_trained"
     t.boolean "vaccinated"
     t.boolean "spayed_or_neutered"
+    t.boolean "tweeted", default: false
   end
 
 end

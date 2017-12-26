@@ -1,4 +1,4 @@
-module TextGeneration
+module Text
   class Instruction
     attr_reader :probability, :content
 

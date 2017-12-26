@@ -1,6 +1,6 @@
 require "spec_helper.rb"
 
-describe TextGeneration::TextGenerator do
+describe Text::Generator do
   describe "#generate" do
     let(:subjects) { {} }
     let(:output) do

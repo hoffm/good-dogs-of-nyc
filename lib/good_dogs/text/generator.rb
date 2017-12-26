@@ -1,11 +1,11 @@
-module TextGeneration
-  class TextGenerator
+module Text
+  class Generator
     include PostProcessor
 
     attr_reader :subjects, :output, :grammar
 
     ROOT_NODE = "<root>".freeze
-    DEFAULT_GRAMMAR = JSON.parse(File.read("lib/grammar.json"))
+    DEFAULT_GRAMMAR = JSON.parse(File.read("#{APP_PATH}/grammar.json"))
 
     def initialize(grammar = DEFAULT_GRAMMAR, subjects: {})
       @output = []
@@ -20,7 +20,7 @@ module TextGeneration
     private
 
     def build_instruction(str)
-      TextGeneration::Instruction.new(str)
+      Text::Instruction.new(str)
     end
 
     def generate_list(key)

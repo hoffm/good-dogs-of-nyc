@@ -1,4 +1,4 @@
-module TextGeneration
+module Text
   module PostProcessor
     NO_SPACE_BEFORE = %w(. , ! ?).freeze
     POST_PROCESSED_PHRASES = {

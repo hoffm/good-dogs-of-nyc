@@ -38,6 +38,14 @@ describe GoodDog do
     end
   end
 
+  describe "#mark_as_tweeted!" do
+    it "updates tweeted to true" do
+      create(:good_dog, tweeted: false)
+      good_dog.mark_as_tweeted!
+      expect(good_dog).to be_tweeted
+    end
+  end
+
   describe "#neighborhood" do
     before(:each) do
       allow(NeighborhoodService).to receive(:from_zip)
