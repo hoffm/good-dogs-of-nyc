@@ -1,4 +1,5 @@
 require "./lib/good_dogs.rb"
+require "wordz"
 
 class TweetAGoodDog
   def run
@@ -8,6 +9,10 @@ class TweetAGoodDog
   end
 
   private
+
+  def grammar
+    JSON.parse(File.read("#{GOOD_DOGS_APP_PATH}/grammar.json"))
+  end
 
   def random_good_dog
     pick_good_dog(random_good_dog_id)
@@ -22,7 +27,7 @@ class TweetAGoodDog
   end
 
   def tweet_text(good_dog)
-    Text::Generator.new(subjects: { dog: good_dog }).generate
+    Wordz::Generator.new(grammar, subjects: { dog: good_dog }).generate
   end
 end
 

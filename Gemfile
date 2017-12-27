@@ -6,6 +6,7 @@ gem "dotenv", "~> 2.2"
 gem "pg", "~> 0.21"
 gem "standalone_migrations", "~> 5.2.3"
 gem "twitter", "~> 6.1"
+gem "wordz", "~> 0.1"
 
 group :development do
   gem "rubocop", "~> 0.52"
