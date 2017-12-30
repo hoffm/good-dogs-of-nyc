@@ -27,7 +27,10 @@ class TweetAGoodDog
   end
 
   def tweet_text(good_dog)
-    Wordz::Generator.new(grammar, subjects: { dog: good_dog }).generate
+    Wordz.generate(
+      grammar: grammar,
+      subjects: { dog: good_dog },
+    )
   end
 end
 

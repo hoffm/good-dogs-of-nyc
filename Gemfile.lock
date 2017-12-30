@@ -134,7 +134,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.4)
     unicode-display_width (1.3.0)
-    wordz (0.1.0)
+    wordz (0.2.0)
 
 PLATFORMS
   ruby
@@ -149,7 +149,7 @@ DEPENDENCIES
   rubocop (~> 0.52)
   standalone_migrations (~> 5.2.3)
   twitter (~> 6.1)
-  wordz (~> 0.1)
+  wordz (~> 0.2)
 
 RUBY VERSION
    ruby 2.5.0p0
